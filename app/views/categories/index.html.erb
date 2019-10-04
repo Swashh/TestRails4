@@ -1,0 +1,15 @@
+<h1>Все наши категории</h1>
+  <% @category.each do |category| %>
+    <div class="alert alert-light">
+      <h2>Название категории:</h2>
+  <h3><%= category.title %></h3>
+      <h3>Описание категории:</h3>
+    <p3><%= category.text %></p3>
+      </p>
+      <%= link_to "Показать категорию", category_path(category), class: 'btn btn-info' %>
+      <%= link_to "Pедактировать", edit_category_path(category), class: 'btn btn-info' %>
+      <%= link_to "Удалить", category_path(category), method: :delete, data: {confirm: "Хотите удалить категорию?"}, class: 'btn btn-danger' %>
+      </p>
+    </div>
+    <br>
+<% end %>
