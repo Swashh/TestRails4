@@ -1,0 +1,19 @@
+<h1>Редактирование поста</h1>
+<%= form_for :post, url: posts_path do |f| %>
+    <p>
+      Название<br>
+      <%= f.text_field(:title, {:class => 'form-control'}) %>
+    </p>
+    <p>
+      Описание статьи<br>
+      <%= f.text_area(:text,{:class => 'form-control'})%>
+    </p>
+    <p>
+
+      <%= f.submit({:class => 'btn btn-info'}) %>
+    </p>
+    <p>
+      <%= select("post", "category_id", Category.all.collect {|p| [ p.title, p.id ] }, { include_blank: true })  %>
+    </p>
+
+<% end %>

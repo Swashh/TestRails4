@@ -29,3 +29,29 @@
     </p>
 
 <% end %>
+
+<h1>Создание нового поста</h1>
+<% @category.posts.each do |post| %>
+    <div class="alert alert-light">
+      <h3><%= post.title %></h3>
+      <p3><%= post.text %></p3>
+    </div>
+    <br>
+
+<% end %>
+
+<%= form_for :post, url: posts_path(@category) do |f| %>
+
+    <p>
+      Название поста<br>
+      <%= f.text_field(:title, {:class => 'form-control'}) %>
+    </p>
+    <p>
+      Описание поста<br>
+      <%= f.text_area(:text,{:class => 'form-control'})%>
+    </p>
+    <p>
+
+      <%= f.submit({:class => 'btn btn-info'}) %>
+    </p>
+<% end %>
